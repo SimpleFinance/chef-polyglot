@@ -1,0 +1,9 @@
+
+<% if !@sources.empty? %>
+:sources:
+  <% @sources.each do |source| %>
+- <%= source %> 
+  <% end %>
+<% end %>
+install: <%= @gem_opts %>
+update: <%= @gem_opts %>

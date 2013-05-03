@@ -8,10 +8,10 @@ This cookbook makes some assumptions about your deployment environment, but
 ships with attributes to make switching things in or out as easy as possible.
 
 The standard environment you get via `polyglot::default` is:
-* Oracle Java
-* Maven 3
-* Ruby 2.0.0-p0
-* JRuby 1.7.3
+* Oracle JDK6
+* Maven 3.0.5
+* Ruby 2.0.0-rc1
+* JRuby 1.7.2
 * Leiningen 2
 * Python 2.7.1
 * Android SDK 21.1 (disabled by default)

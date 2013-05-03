@@ -20,8 +20,8 @@
 # Configures Clojure
 
 remote_file '/usr/local/bin/lein' do
-  source node[:polyglot][:lein][:url]
-  checksum node[:polyglot][:lein][:checksum]
+  source node[:polyglot][:clojure][:lein_url]
+  checksum node[:polyglot][:clojure][:lein_checksum]
   mode 00755
 end
 

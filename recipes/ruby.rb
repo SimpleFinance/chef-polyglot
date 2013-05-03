@@ -32,8 +32,10 @@ template '/etc/gemrc' do
     :gem_opts => node[:polyglot][:ruby][:gem_opts] )
 end
 
-node[:rbenv][:rubies].each do |rubie|
-  node[:polyglot][:ruby][:gems].each do |gem|
+node[:rbenv][:rubies].select do |rubie|
+  /jruby/.match rubie
+end.each do |rubie|
+  node[:polyglot][:ruby][:jruby_gems].each do |gem|
     rbenv_gem gem do
       rbenv_version rubie
       action :install
@@ -41,12 +43,23 @@ node[:rbenv][:rubies].each do |rubie|
   end
 end
 
-rbenv_global node[:polyglot][:ruby][:rubies].first
+node[:rbenv][:rubies].select do |rubie|
+  /[^j]ruby/.match rubie
+end.each do |rubie|
+  node[:polyglot][:ruby][:ruby_gems].each do |gem|
+    rbenv_gem gem do
+      rbenv_version rubie
+      action :install
+    end
+  end
+end
+
+rbenv_global node[:rbenv][:rubies].first
 
 %w{ jruby ruby }.each do |ruby|
   directory "#{node[:polyglot][:ruby][:gem_cache]}/#{ruby}" do
-    owner node[:jenkins][:node][:user]
-    group node[:jenkins][:node][:user]
+    owner node[:polyglot][:user]
+    group node[:polyglot][:user]
     recursive true
   end
   node.override[:builder][:env]["#{ruby.upcase}_GEMS"] = "#{node[:polyglot][:ruby][:gem_cache]}/#{ruby}"

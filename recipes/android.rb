@@ -20,8 +20,8 @@
 # Configures an Android environment
 
 directory node[:polyglot][:android][:home] do
-  owner node[:jenkins][:node][:user]
-  group node[:jenkins][:node][:user]
+  owner node[:polyglot][:user]
+  group node[:polyglot][:user]
   recursive true
 end
 
@@ -40,7 +40,7 @@ end
 
 filters = node[:polyglot][:android][:filters].join(',')
 execute 'android-update-sdk' do
-  user node[:jenkins][:node][:user]
+  user node[:polyglot][:user]
   cwd "#{node[:polyglot][:android][:home]}/tools"
   command "./android update sdk --no-ui --filter #{filters}"
   action :nothing

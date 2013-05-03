@@ -42,7 +42,7 @@ node[:rbenv][:rubies].each do |rubie|
       end
     end
   when /[^j]ruby/.match(rubie)
-    node[:polyglot][:ruby][:jruby_gems].each do |gem|
+    node[:polyglot][:ruby][:ruby_gems].each do |gem|
       rbenv_gem gem do
         rbenv_version rubie
         action :install

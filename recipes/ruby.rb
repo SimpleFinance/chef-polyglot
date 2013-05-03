@@ -32,24 +32,21 @@ template '/etc/gemrc' do
     :gem_opts => node[:polyglot][:ruby][:gem_opts] )
 end
 
-node[:rbenv][:rubies].select do |rubie|
-  /jruby/.match rubie
-end.each do |rubie|
-  node[:polyglot][:ruby][:jruby_gems].each do |gem|
-    rbenv_gem gem do
-      rbenv_version rubie
-      action :install
+node[:rbenv][:rubies].each do |rubie|
+  case rubie
+  when /jruby/.match(rubie)
+    node[:polyglot][:ruby][:jruby_gems].each do |gem|
+      rbenv_gem gem do
+        rbenv_version rubie
+        action :install
+      end
     end
-  end
-end
-
-node[:rbenv][:rubies].select do |rubie|
-  /[^j]ruby/.match rubie
-end.each do |rubie|
-  node[:polyglot][:ruby][:ruby_gems].each do |gem|
-    rbenv_gem gem do
-      rbenv_version rubie
-      action :install
+  when /[^j]ruby/.match(rubie)
+    node[:polyglot][:ruby][:jruby_gems].each do |gem|
+      rbenv_gem gem do
+        rbenv_version rubie
+        action :install
+      end
     end
   end
 end

@@ -15,7 +15,7 @@ The standard environment you get via `polyglot::default` is:
 * Leiningen 2
 * Python 2.7.1
 * Android SDK 21.1 (disabled by default)
-* Go 1.0.3
+* Go 1.1.0
 
 In the near future, we'll extend this cookbook for some other languages. Since
 this cookbook is a wrapper for a variety of language-specific cookbooks, it's

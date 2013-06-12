@@ -43,6 +43,9 @@ default[:polyglot][:clojure][:enable] = true
 default[:polyglot][:clojure][:lein_url] = 'https://raw.github.com/technomancy/leiningen/2.0.0/bin/lein'
 default[:polyglot][:clojure][:lein_checksum] = '00bd30c11a7e9d646ede4487189adde85dfbc41f7b8cc3b717a501a2070d60c4'
 
+# Golang
+default[:polyglot][:golang][:enable] = true
+
 # Ruby
 default[:polyglot][:ruby][:enable] = true
 default[:polyglot][:ruby][:ruby_gems] = [ 'aws-sdk', 'berkshelf', 'capistrano', 'bundler' ]

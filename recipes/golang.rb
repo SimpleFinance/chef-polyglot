@@ -1,4 +1,4 @@
-# recipes/default.rb
+# recipes/golang.rb
 #
 # Author: Simple Finance <ops@simple.com>
 # License: Apache License, Version 2.0
@@ -17,15 +17,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# Basic recipe to include language configuration
+# Supports deployment of Go
 
-package 'curl' do
-  action :nothing
-end.run_action(:install)
-
-%w{ java android golang ruby python clojure }.each do |lang|
-  if node[:polyglot][lang][:enable]
-    include_recipe "polyglot::#{lang}"
-  end
+# Just the package for now -- TODO : Source support / separate cookbook
+package 'golang' do
+  action :install
 end
 

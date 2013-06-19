@@ -8,6 +8,6 @@ cookbook 'rbenv',
   :git => 'git@github.com:fnichol/chef-rbenv.git'
 cookbook 'ruby'
 cookbook 'ruby_build'
-cookbook 'polyglot'
+cookbook 'polyglot',
   :path => './'
 

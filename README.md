@@ -29,6 +29,9 @@ follows:
 * Python: `node[:python][:version]`
 * Android: `node[:polyglot][:android][:sdk_url]`
 
+## Questions?
+Hop on ##simple on Freenode with any questions or concerns.
+
 ## Author
 Simple Finance <ops@simple.com>
 

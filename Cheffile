@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+site 'http://community.opscode.com/api/v1'
+
+cookbook 'java'
+cookbook 'maven'
+cookbook 'python'
+cookbook 'rbenv',
+  :git => 'git@github.com:fnichol/chef-rbenv.git'
+cookbook 'ruby'
+cookbook 'ruby_build'
+cookbook 'polyglot',
+  :path => './'
+

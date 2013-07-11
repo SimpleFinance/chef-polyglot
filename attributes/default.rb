@@ -35,8 +35,8 @@ default[:polyglot][:android][:filters] = [ 'platform', 'tool', 'platform-tool', 
 
 # Clojure
 default[:polyglot][:clojure][:enable] = true
-default[:polyglot][:clojure][:lein_url] = 'https://raw.github.com/technomancy/leiningen/2.0.0/bin/lein'
-default[:polyglot][:clojure][:lein_checksum] = '00bd30c11a7e9d646ede4487189adde85dfbc41f7b8cc3b717a501a2070d60c4'
+default[:polyglot][:clojure][:lein_url] = 'https://raw.github.com/technomancy/leiningen/2.2.0/bin/lein'
+default[:polyglot][:clojure][:lein_checksum] = 'ebabcb20a97a6ecd2c6f6be28d317b14227728d9fef486d09b452c7bbe9beecd'
 
 # Golang
 default[:polyglot][:golang][:enable] = true

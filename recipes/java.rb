@@ -22,6 +22,11 @@
 include_recipe 'java::default'
 include_recipe 'maven::default'
 
+node.normal[:java][:install_flavor] = 'oracle'
+node.normal[:java][:oracle][:accept_oracle_download_terms] = true
+node.normal[:maven][:version] = 3
+node.normal[:maven][:setup_bin] = true
+
 link "/usr/bin/mvn#{node[:maven][:version]}" do
   to '/usr/bin/mvn'
 end

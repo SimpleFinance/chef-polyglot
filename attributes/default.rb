@@ -22,14 +22,8 @@
 # Various defaults
 default[:polyglot][:user] = 'root'
 
-# Maven
-override[:maven][:version] = 3
-override[:maven][:setup_bin] = true
-
 # Java
 default[:polyglot][:java][:enable] = true
-override[:java][:install_flavor] = 'oracle'
-override[:java][:oracle][:accept_oracle_download_terms] = true
 
 # Android
 default[:polyglot][:android][:enable] = false
@@ -53,9 +47,6 @@ default[:polyglot][:ruby][:jruby_gems] = [ 'bundler' ]
 default[:polyglot][:ruby][:gem_cache] = ::File.join('/opt', 'gem-cache')
 default[:polyglot][:ruby][:gem_opts] = '--no-ri --no-rdoc'
 default[:polyglot][:ruby][:gem_sources] = []
-override[:rbenv][:rubies] = [ '2.0.0-rc1', 'jruby-1.7.2' ]
-override[:rbenv][:git_ref] = "e3f72ebae20768079ca4b4425a364900f3f16fc6"
-override[:ruby_build][:git_ref] = "724a3f38c4d5e6a89c6772935b40ad76a6b6a889"
 
 # Python
 default[:polyglot][:python][:enable] = true

@@ -19,8 +19,5 @@
 #
 # Supports deployment of Go
 
-# Just the package for now -- TODO : Source support / separate cookbook
-package 'golang' do
-  action :install
-end
+include_recipe 'golang::default'
 

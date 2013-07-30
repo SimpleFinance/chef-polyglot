@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 site 'http://community.opscode.com/api/v1'
 
+cookbook 'golang',
+  :git => 'git@github.com:SimpleFinance/chef-golang.git'
 cookbook 'java'
 cookbook 'maven'
 cookbook 'python'

@@ -3,7 +3,7 @@ maintainer        'Simple Finance'
 maintainer_email  'ops@simple.com'
 license           'Apache 2.0'
 description       'Easy defaults for ruby, python, clojure, java, and android'
-version           '1.3.0'
+version           '1.4.0'
 
 depends 'golang'
 depends 'java'

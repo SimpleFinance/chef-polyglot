@@ -19,9 +19,9 @@
 #
 # Configures Ruby
 
-node.normal[:rbenv][:rubies] = [ '2.0.0-rc1', 'jruby-1.7.2' ]
-node.normal[:rbenv][:git_ref] = "e3f72ebae20768079ca4b4425a364900f3f16fc6"
-node.normal[:ruby_build][:git_ref] = "724a3f38c4d5e6a89c6772935b40ad76a6b6a889"
+node.normal[:rbenv][:rubies] = [ '2.0.0-rc1', 'jruby-1.7.6' ]
+node.normal[:rbenv][:git_ref] = "3300587c6bef99f6504f4bacb147e5d9ab315e98"
+node.normal[:ruby_build][:git_ref] = "4ed38ba4bceafa3f8908a05b58e6bcf219fbbdc3"
 
 include_recipe 'ruby_build::default'
 include_recipe 'rbenv::system'

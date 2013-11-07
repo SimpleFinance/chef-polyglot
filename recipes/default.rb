@@ -23,7 +23,7 @@ package 'curl' do
   action :nothing
 end.run_action(:install)
 
-%w{ java android golang ruby python clojure }.each do |lang|
+node[:polyglot][:languages].each do |lang|
   if node[:polyglot][lang][:enable]
     include_recipe "polyglot::#{lang}"
   end

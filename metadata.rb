@@ -8,7 +8,7 @@ version           '1.5.0'
 depends 'golang'
 depends 'java'
 depends 'maven'
-depends 'nodejs'
+depends 'nodejs' # https://github.com/mdxp/nodejs-cookbook
 depends 'python'
 depends 'rbenv'
 depends 'ruby'

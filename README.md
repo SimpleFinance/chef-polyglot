@@ -1,5 +1,5 @@
 # Polyglot
-Cookbook for easily setting up a sane Ruby, Java, Clojure, Python, and Android
+Cookbook for easily setting up a sane Ruby, Java, Clojure, Python, Node.js and Android
 environment. Made to complement [Builder](https://github.com/SimpleFinance/chef-builder), but a good starting point for any
 team working with a variety of languages, especially on the JVM.
 

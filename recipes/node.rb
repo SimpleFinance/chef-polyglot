@@ -1,4 +1,4 @@
-# recipes/default.rb
+# recipes/node.rb
 #
 # Author: Simple Finance <ops@simple.com>
 # License: Apache License, Version 2.0
@@ -17,15 +17,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# Basic recipe to include language configuration
+# Configures Node
 
-package 'curl' do
-  action :nothing
-end.run_action(:install)
-
-node[:polyglot][:languages].each do |lang|
-  if node[:polyglot][lang][:enable]
-    include_recipe "polyglot::#{lang}"
-  end
-end
+include_recipe 'nodejs::default'
+include_recipe 'nodejs::npm'
 

@@ -21,7 +21,7 @@
 
 # Various defaults
 default[:polyglot][:user] = 'root'
-default[:polyglot][:languages] = ['java', 'android', 'golang', 'ruby', 'python', 'clojure']
+default[:polyglot][:languages] = ['java', 'android', 'golang', 'ruby', 'python', 'clojure', 'nodejs']
 
 # Java
 default[:polyglot][:java][:enable] = true

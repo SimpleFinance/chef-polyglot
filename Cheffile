@@ -10,6 +10,7 @@ cookbook 'rbenv',
   :git => 'git@github.com:fnichol/chef-rbenv.git'
 cookbook 'ruby'
 cookbook 'ruby_build'
+cookbook 'nodejs',
+  :git => 'https://github.com/mdxp/nodejs-cookbook.git'
 cookbook 'polyglot',
   :path => './'
-

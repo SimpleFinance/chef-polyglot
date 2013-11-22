@@ -24,8 +24,10 @@ package 'curl' do
 end.run_action(:install)
 
 node[:polyglot][:languages].each do |lang|
-  if node[:polyglot][lang][:enable]
-    include_recipe "polyglot::#{lang}"
+  if not node[:polyglot][lang].nil?
+    if node[:polyglot][lang][:enable]
+      include_recipe "polyglot::#{lang}"
+    end
   end
 end
 

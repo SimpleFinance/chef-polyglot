@@ -12,4 +12,5 @@ cookbook 'ruby'
 cookbook 'ruby_build'
 cookbook 'polyglot',
   :path => './'
-
+cookbook 'nodejs',
+  :git => 'https://github.com/mdxp/nodejs-cookbook'

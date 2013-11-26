@@ -19,7 +19,9 @@
 #
 # Configures Ruby
 
-node.normal[:rbenv][:rubies] = [ '2.0.0-rc1', 'jruby-1.7.6' ]
+MRI_VERSION = '2.0.0-rc1'
+JRUBY_VERSION = 'jruby-1.7.6'
+node.normal[:rbenv][:rubies] = [ MRI_VERSION, JRUBY_VERSION ]
 node.normal[:rbenv][:git_ref] = "3300587c6bef99f6504f4bacb147e5d9ab315e98"
 node.normal[:ruby_build][:git_ref] = "4ed38ba4bceafa3f8908a05b58e6bcf219fbbdc3"
 
@@ -36,22 +38,17 @@ template '/etc/gemrc' do
     :gem_opts => node[:polyglot][:ruby][:gem_opts] )
 end
 
-node[:rbenv][:rubies].each do |rubie|
-  case rubie
-  when /jruby/.match(rubie)
-    node[:polyglot][:ruby][:jruby_gems].each do |gem|
-      rbenv_gem gem do
-        rbenv_version rubie
-        action :install
-      end
-    end
-  when /[^j]ruby/.match(rubie)
-    node[:polyglot][:ruby][:ruby_gems].each do |gem|
-      rbenv_gem gem do
-        rbenv_version rubie
-        action :install
-      end
-    end
+node[:polyglot][:ruby][:jruby_gems].each do |gem|
+  rbenv_gem gem do
+    rbenv_version JRUBY_VERSION
+    action :install
+  end
+end
+
+node[:polyglot][:ruby][:ruby_gems].each do |gem|
+  rbenv_gem gem do
+    rbenv_version MRI_VERSION
+    action :install
   end
 end
 

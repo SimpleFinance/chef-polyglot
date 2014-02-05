@@ -27,9 +27,9 @@ default[:polyglot][:languages] = ['java', 'android', 'golang', 'ruby', 'python',
 default[:polyglot][:java][:enable] = true
 
 # Android
-default[:polyglot][:android][:enable] = false
-default[:polyglot][:android][:sdk_url] = 'http://dl.google.com/android/android-sdk_r21.1-linux.tgz'
-default[:polyglot][:android][:sdk_hash] = '276e3c13a10f37927d4e04d036a94a0cbbf62326981f0ba61a303b76567e3379'
+default[:polyglot][:android][:enable] = true
+default[:polyglot][:android][:sdk_url] = 'http://dl.google.com/android/android-sdk_r22.3-linux.tgz'
+default[:polyglot][:android][:sdk_checksum] = '6ae581a906d6420ad67176dff25a31cc'
 default[:polyglot][:android][:home] = ::File.join('/opt', 'tools', 'android-sdk-linux')
 default[:polyglot][:android][:filters] = [ 'platform', 'tool', 'platform-tool', 'add-on' ]
 

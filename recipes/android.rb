@@ -49,6 +49,6 @@ filters = node[:polyglot][:android][:filters].join(',')
 execute 'android-update-sdk' do
   user node[:polyglot][:user]
   cwd ::File.join(node[:polyglot][:android][:home], 'tools')
-  command "./android update sdk --no-ui --all --filter #{filters}"
+  command "echo \"y\" | ./android update sdk --no-ui --all --filter #{filters}"
   action :nothing
 end

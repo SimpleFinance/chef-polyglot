@@ -33,12 +33,12 @@ default[:polyglot][:android][:sdk_checksum] = '6ae581a906d6420ad67176dff25a31cc'
 default[:polyglot][:android][:home] = ::File.join('/opt', 'tools', 'android-sdk-linux')
 default[:polyglot][:android][:filters] = [
   'platform-tools',
-  'build-tools-19.0.0'
-  'android-19'
-  'addon-google_apis-google-19'
-  'extra-android-support'
-  'extra-google-google_play_services'
-  'extra-google-m2repository'
+  'build-tools-19.0.0',
+  'android-19',
+  'addon-google_apis-google-19',
+  'extra-android-support',
+  'extra-google-google_play_services',
+  'extra-google-m2repository',
   'extra-android-m2repository' ]
 
 # Clojure

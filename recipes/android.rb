@@ -19,30 +19,46 @@
 #
 # Configures an Android environment
 
+%w{libncurses5:i386 libstdc++6:i386 zlib1g:i386}.each do |pkg|
+    package pkg do
+      action :install
+    end
+end
+
 directory node[:polyglot][:android][:home] do
   owner node[:polyglot][:user]
   group node[:polyglot][:user]
   recursive true
 end
 
-remote_file ::File.join(Chef::Config[:file_cache_path], 'android-sdk-linux.tgz') do
+sdk_archive_file = ::File.join(Chef::Config[:file_cache_path], 'android-sdk-linux.tgz')
+remote_file sdk_archive_file do
   source node[:polyglot][:android][:sdk_url]
-  checksum node[:polyglot][:android][:sdk_hash]
-  notifies :run, 'execute[android-install-sdk]', :immediately
+  checksum node[:polyglot][:android][:sdk_checksum]
+  backup false
+
+  # Unpacks the SDK
+  notifies :run, 'execute[android-unpack-sdk]', :immediately
+
+  # Installs the SDK components
   notifies :run, 'execute[android-update-sdk]', :immediately
 end
 
-execute 'android-install-sdk' do
-  cwd "#{node[:polyglot][:android][:android_home]}/.."
-  command "tar -xzf #{Chef::Config[:file_cache_path]}/android-sdk-linux.tgz"
+execute 'android-unpack-sdk' do
+  user node[:polyglot][:user]
+  cwd ::File.dirname(node[:polyglot][:android][:home])
+  command "tar -xzf #{sdk_archive_file}"
   action :nothing
 end
 
 filters = node[:polyglot][:android][:filters].join(',')
 execute 'android-update-sdk' do
   user node[:polyglot][:user]
-  cwd "#{node[:polyglot][:android][:home]}/tools"
-  command "./android update sdk --no-ui --filter #{filters}"
+  cwd ::File.join(node[:polyglot][:android][:home], 'tools')
+
+  # Note: We echo "y" here because the update sdk command may prompt us to
+  # accept a new license agreement. This may fail if multiple licenses must
+  # be accepted.
+  command "echo \"y\" | ./android update sdk --no-ui --all --filter #{filters}"
   action :nothing
 end
-

@@ -19,6 +19,12 @@
 #
 # Configures an Android environment
 
+%w{libncurses5:i386 libstdc++6:i386 zlib1g:i386}.each do |pkg|
+    package pkg do
+      action :install
+    end
+end
+
 directory node[:polyglot][:android][:home] do
   owner node[:polyglot][:user]
   group node[:polyglot][:user]

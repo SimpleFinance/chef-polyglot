@@ -27,7 +27,7 @@ default[:polyglot][:languages] = ['java', 'android', 'golang', 'ruby', 'python',
 default[:polyglot][:java][:enable] = true
 
 # Android
-default[:polyglot][:android][:enable] = true
+default[:polyglot][:android][:enable] = false
 default[:polyglot][:android][:sdk_url] = 'http://dl.google.com/android/android-sdk_r22.3-linux.tgz'
 default[:polyglot][:android][:sdk_checksum] = '6ae581a906d6420ad67176dff25a31cc'
 default[:polyglot][:android][:home] = ::File.join('/opt', 'tools', 'android-sdk-linux')
